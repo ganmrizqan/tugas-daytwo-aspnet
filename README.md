@@ -1,2 +1,2 @@
-# tugas-dayone-aspnet
-Aplikasi ASP.NET Core MVC sederhana yang menampilkan daftar buku. Setiap buku memiliki Title, Author, dan PublicationYear.
+# tugas-daythree-aspnet
+Tugas hari ke-3 menambahkan entitas baru dan buat relasi One-to-Many

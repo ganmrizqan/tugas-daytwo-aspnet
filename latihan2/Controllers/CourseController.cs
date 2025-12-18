@@ -60,6 +60,7 @@ namespace latihan2.Controllers
             {
                 _context.Add(course);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "Course berhasil ditambahkan!";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -99,6 +100,7 @@ namespace latihan2.Controllers
                 {
                     _context.Update(course);
                     await _context.SaveChangesAsync();
+                    TempData["Success"] = "Data Course berhasil diperbarui!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -145,6 +147,7 @@ namespace latihan2.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Data Course berhasil dihapus!";
             return RedirectToAction(nameof(Index));
         }
 

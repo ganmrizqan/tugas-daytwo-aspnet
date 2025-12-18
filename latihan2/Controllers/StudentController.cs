@@ -75,6 +75,7 @@ public class StudentController : Controller
         {
             _context.Add(student);
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Siswa berhasil ditambahkan!";
             return RedirectToAction(nameof(Index));
         }
         return View(student);
@@ -111,6 +112,7 @@ public class StudentController : Controller
             {
                 _context.Update(student);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "Data Siswa berhasil diperbarui!";
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -155,6 +157,7 @@ public class StudentController : Controller
         }
 
         await _context.SaveChangesAsync();
+        TempData["Success"] = "Data Siswa berhasil dihapus!";
         return RedirectToAction(nameof(Index));
     }
     private bool StudentExists(int id)

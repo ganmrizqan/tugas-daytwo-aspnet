@@ -9,6 +9,7 @@ public class Student
 
     [Required(ErrorMessage = "Nama wajib diisi.")]
     [StringLength(100, ErrorMessage = "Nama tidak boleh lebih dari 100 karakter.")]
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Nama tidak boleh mengandung angka atau karakter khusus.")]
     public string? Name { get; set; }
         
     [Required(ErrorMessage = "Email wajib diisi.")]
