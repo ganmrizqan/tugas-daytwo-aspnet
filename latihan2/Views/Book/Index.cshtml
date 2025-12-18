@@ -1,0 +1,39 @@
+﻿@model List<latihan2.Models.Book>
+
+<h2>Daftar Buku</h2>
+<hr />
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>ID</th>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Tahun Terbit</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td class="text-center">@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td class="text-center">@book.PublicationYear</td>
+                <td class="text-center">
+                    <a asp controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="btn btn-primary btn-sm">Lihat Detail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@* <ul>
+    @foreach (var book in Model)
+    {
+        <li>
+            <strong>@book.Title</strong> oleh @book.Author (@book.PublicationYear) -
+            <a asp-action="Detail" asp-route-id="@book.Id">Lihat Detail</a>
+        </li>
+    }
+</ul> *@

@@ -1,0 +1,40 @@
+@model latihan2.Models.Student
+
+@{
+    ViewData["Title"] = "Hapus Siswa";
+}
+
+<h2>Hapus Siswa</h2>
+<hr />
+
+<h3>Apakah anda yakin ingin menghapus siswa ini?</h3>
+<div>
+    <h4>Siswa</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nama
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Usia
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" value="Hapus" class="btn btn-danger">Hapus</button>
+        <a asp-action="Index" class="btn btn-secondary">Kembali ke Daftar</a>
+    </form>
+</div>

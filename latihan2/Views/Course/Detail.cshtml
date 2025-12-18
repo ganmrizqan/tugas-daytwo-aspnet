@@ -1,0 +1,45 @@
+@model latihan2.Models.Course
+
+@{
+    ViewData["Title"] = "Detail Course";
+}
+
+<h2>Detail Course</h2>
+<hr />
+<h5>@ViewBag.Message</h5>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td><strong>Title:</strong></td>
+        <td>@Model.Title</td>
+    </tr>
+</table>
+@* <div>
+    <h4>@ViewBag.Message</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nama
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+        <dt class="col-sm-2">
+            Usia
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Age
+        </dd>
+    </dl>
+</div>   *@
+
+<div>
+    <a asp-action="Edit" asp-route-id ="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Kembali ke Daftar Siswa</a>
+</div>

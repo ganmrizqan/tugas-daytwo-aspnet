@@ -1,0 +1,31 @@
+@model latihan2.Models.Course
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h2>Edit Course</h2>
+<hr />
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="StudentId" class="control-label">Siswa</label>
+        <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+        <span asp-validation-for="StudentId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <h2></h2>
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Kembali ke Daftar Course</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

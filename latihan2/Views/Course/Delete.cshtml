@@ -1,0 +1,28 @@
+@model latihan2.Models.Course
+
+@{
+    ViewData["Title"] = "Hapus Course";
+}
+
+<h2>Hapus Course</h2>
+<hr />
+
+<h3>Apakah anda yakin ingin menghapus course ini?</h3>
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Title
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" value="Hapus" class="btn btn-danger">Hapus</button>
+        <a asp-action="Index" class="btn btn-secondary">Kembali ke Daftar</a>
+    </form>
+</div>

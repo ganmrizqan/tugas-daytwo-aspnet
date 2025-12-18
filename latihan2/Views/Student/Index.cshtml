@@ -1,0 +1,38 @@
+@model IEnumerable<latihan2.Models.Student>
+
+@{
+    ViewData["Title"] = "Daftar Siswa";
+}
+
+<h2>Daftar Siswa</h2>
+<hr />
+
+<p>
+    <a asp-controller="Student" asp-action="Create" class="btn btn-primary">Tambah Siswa Baru</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Age)</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Student" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info btn-sm btn-secondary">Detail</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

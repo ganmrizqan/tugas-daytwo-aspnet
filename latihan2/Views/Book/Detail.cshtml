@@ -1,0 +1,22 @@
+@model latihan2.Models.Book
+
+<h2>Detail Buku</h2>
+<hr />
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td><strong>Judul:</strong></td>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <td><strong>Penulis:</strong></td>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <td><strong>Tahun Terbit:</strong></td>
+        <td>@Model.PublicationYear</td>
+    </tr>
+</table>
+
+<a asp-controller="Book" asp-action="Index" class="btn btn-primary btn-sm">Kembali ke Daftar Buku</a>
+       

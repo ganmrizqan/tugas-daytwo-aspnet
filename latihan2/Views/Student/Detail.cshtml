@@ -1,0 +1,55 @@
+@model latihan2.Models.Student
+
+@{
+    ViewData["Title"] = "Detail Siswa";
+}
+
+<h2>Detail Siswa</h2>
+<hr />
+<h5>@ViewBag.Message</h5>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td><strong>Nama:</strong></td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td><strong>Email:</strong></td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td><strong>Usia:</strong></td>
+        <td>@Model.Age</td>
+    </tr>
+</table>
+
+<hr />
+<h3>Daftar Kursus yang Diambil</h3>
+
+@if (Model.Courses != null && Model.Courses.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nama Kursus</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Courses)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">Siswa ini belum mengambil kursus apapun.</p>
+}
+
+<div>
+    <a asp-action="Edit" asp-route-id ="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Kembali ke Daftar Siswa</a>
+</div>

@@ -1,0 +1,39 @@
+@model latihan2.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Siswa";
+}
+
+<h2>Edit Siswa</h2>
+<hr />
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name">Nama</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Alamat Email</label>
+        <input type="email" asp-for="Email" class="form-control" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">Kami tidak akan membagikan email Anda dengan orang lain.</small>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Age">Umur</label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <h2></h2>
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Kembali ke Daftar Siswa</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
